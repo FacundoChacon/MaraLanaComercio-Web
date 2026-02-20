@@ -9,25 +9,26 @@
 
 <body>
 
-<header>
-    <h1>Mara Lana Equipamientos Comercial</h1>
-    <p>Equipamiento profesional para tu negocio</p>
-</header>
+<div class="fondo-superior">
+    <header>
+        <h1>Mara Lana Equipamientos Comercial</h1>
+        <p>Equipamiento profesional para tu negocio</p>
+    </header>
 
-<nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#productos">Productos</a>
-    <a href="#galeria">Galería</a>
-    <a href="#contacto">Contacto</a>
-</nav>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Equipamientos</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-<section id="inicio" class="hero fade-in">
-    <h2>Calidad industrial. Rendimiento real.</h2>
-    <a class="btn" href="https://wa.me/5492616999686" target="_blank">
-        Contactar por WhatsApp
-    </a>
-</section>
-
+    <section id="inicio" class="hero">
+        <h2>Calidad industrial. Rendimiento real.</h2>
+        <a class="btn" href="https://wa.me/5492616999686" target="_blank">
+            Contactar por WhatsApp
+        </a>
+    </section>
+</div>
 <section id="productos" class="fade-in">
     <h2>Equipamientos</h2>
     <div class="grid">
@@ -53,10 +54,10 @@
 <section id="galeria" class="fade-in">
     <h2>Galería</h2>
     <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758" alt="">
-        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f" alt="">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="">
-        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="">
+        <img src="img/batidora_industrial.png" alt="">
+        <img src="img/freidora.png" alt="">
+        <img src="img/horno-pizzero.png" alt="">
+        <img src="img/moldes.png" alt="">
     </div>
 </section>
 
@@ -66,7 +67,8 @@
     <form action="https://formspree.io/f/tu_codigo" method="POST">
         <input type="text" name="nombre" placeholder="Tu nombre" required>
         <input type="email" name="email" placeholder="Tu email" required>
-        <textarea name="mensaje" placeholder="Tu consulta" required></textarea>
+        <textarea name="mensaje" maxlength="200" rows="1" placeholder="Tu consulta" required></textarea>
+        <div class="contador">0 / 200</div>
         <button type="submit">Enviar mensaje</button>
     </form>
 
