@@ -3,8 +3,8 @@
 // =========================
 
 // selecciona solo elementos fade-in DESDE productos en adelante
-const seccionInicioAnimacion = document.querySelector("#productos");
-const elementos = document.querySelectorAll("#productos, #productos ~ section");
+const seccionInicioAnimacion = document.querySelector("#acerca");
+const elementos = document.querySelectorAll("#acerca, #acerca ~ section");
 
 function mostrarElementos() {
     const trigger = window.innerHeight - 100;
@@ -27,9 +27,28 @@ window.addEventListener("scroll", mostrarElementos);
 mostrarElementos();
 
 
-// =========================
+// ================
+// APARECER LATERAL
+// ================
+const elementosLaterales = document.querySelectorAll(".slide-left, .slide-right");
+
+function mostrarLaterales() {
+    elementosLaterales.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 80) {
+            el.classList.add("aparecer");
+        }
+    });
+}
+
+window.addEventListener("scroll", mostrarLaterales);
+mostrarLaterales();
+
+
+// ==========================
 // SCROLL SUAVE EN NAVEGACIÓN
-// =========================
+// ==========================
 
 const enlacesNav = document.querySelectorAll("nav a");
 
