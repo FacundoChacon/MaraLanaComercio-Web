@@ -124,3 +124,36 @@ function fijarNavbar() {
 }
 
 window.addEventListener("scroll", fijarNavbar);
+
+
+// ===========================
+// SECCION VISIBLE DE LA NAVBAR
+// ============================
+
+const secciones = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("nav a");
+
+function activarSeccion() {
+    let scrollPos = window.scrollY + 150; 
+    // offset para compensar navbar fija
+
+    secciones.forEach(sec => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute("id");
+
+        if (scrollPos >= top && scrollPos < top + height) {
+
+            navLinks.forEach(link => {
+                link.classList.remove("activo");
+
+                if (link.getAttribute("href") === "#" + id) {
+                    link.classList.add("activo");
+                }
+            });
+        }
+    });
+}
+
+window.addEventListener("scroll", activarSeccion);
+activarSeccion();
