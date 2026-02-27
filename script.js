@@ -4,7 +4,7 @@
 
 // selecciona solo elementos fade-in DESDE productos en adelante
 const seccionInicioAnimacion = document.querySelector("#acerca");
-const elementos = document.querySelectorAll("#acerca, #acerca ~ section");
+const elementos = document.querySelectorAll(".fade-in");
 
 function mostrarElementos() {
     const trigger = window.innerHeight - 100;
@@ -67,24 +67,45 @@ enlacesNav.forEach(enlace => {
     });
 });
 
-
 // =========================
-// EFECTO FLOTAR EN IMÁGENES
+// COMENTARIOS ALEATORIOS
 // =========================
 
-const imagenes = document.querySelectorAll(".gallery img");
 
-imagenes.forEach(img => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    img.addEventListener("mouseenter", () => {
-        img.style.transform = "translateY(-8px) scale(1.02)";
-        img.style.boxShadow = "0 12px 25px rgba(0,0,0,0.5)";
-        img.style.transition = "0.3s ease";
-    });
+    const contenedor = document.getElementById("listaComentarios");
+    if (!contenedor) return;
 
-    img.addEventListener("mouseleave", () => {
-        img.style.transform = "translateY(0) scale(1)";
-        img.style.boxShadow = "none";
+    const comentarios = [
+        { nombre: "Carolina M.", texto: "Excelente atención y asesoramiento.", estrellas: 5 },
+        { nombre: "Juan P.", texto: "Muy buenos precios y variedad.", estrellas: 5 },
+        { nombre: "Marcelo R.", texto: "Compré una cocina industrial y funciona perfecto.", estrellas: 5 },
+        { nombre: "Cintia A.", texto: "Cumplieron con un pedido por encargo.", estrellas: 5 },
+        { nombre: "Luis F.", texto: "Equipamiento de calidad.", estrellas: 5 },
+        { nombre: "Andrea G.", texto: "Excelente relación precio-calidad.", estrellas: 5 },
+        { nombre: "Diego S.", texto: "Muy confiables.", estrellas: 4 },
+        { nombre: "Rocío B.", texto: "Asesoramiento claro.", estrellas: 5 },
+        { nombre: "Pablo M.", texto: "Ideal para gastronomía.", estrellas: 5 },
+        { nombre: "María L.", texto: "Productos duraderos.", estrellas: 4 },
+        { nombre: "Gustavo T.", texto: "Gran predisposición.", estrellas: 5 },
+        { nombre: "Silvia N.", texto: "Pude probar el equipo antes.", estrellas: 5 }
+    ];
+
+    const mejores = comentarios.filter(c => c.estrellas >= 4);
+    const seleccion = mejores.sort(() => Math.random() - 0.5).slice(0, 4);
+
+    seleccion.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "comentario";
+        card.innerHTML = `
+            <h4>${c.nombre}</h4>
+            <div class="estrellas">${"★".repeat(c.estrellas)}</div>
+            <p>${c.texto}</p>
+        `;
+        contenedor.appendChild(card);
+        setTimeout(() => card.classList.add("aparecer"), 100);
+
     });
 
 });

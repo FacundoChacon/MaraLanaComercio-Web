@@ -13,7 +13,7 @@
         <a href="#inicio">Inicio</a>
         <a href="#acerca">Acerca de</a>
         <a href="#equipamientos">Equipamientos</a>
-        <a href="#galeria">Galería</a>
+        <a href="#comentarios">Comentarios</a>
         <a href="#contacto">Contacto</a>
     </nav>
 
@@ -33,52 +33,19 @@
 
 <section id="acerca" class="acerca-industrial">
     <div class="acerca-layout">
-
-        <div class="acerca-video slide-left">
-            <div class="video-wrapper">
-                <video autoplay muted loop playsinline>
-                    <source src="video/local.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-
         <div class="acerca-contenido slide-right">
             <h2>Acerca de Mara Lana Equipamiento Comercial</h2>
-            <p>
-                Mara Lana equipamientos comercial es un referente en Maipú, Mendoza, especializado en equipamiento comercial confiable, 
-                de calidad y con precios competitivos. Su propuesta se distingue por una amplia variedad de productos pensados para acompañar 
-                tanto a pequeños emprendimientos como a proyectos gastronómicos y comerciales en expansión, ofreciendo soluciones integrales 
-                para distintas necesidades del rubro.
-            </p>
-            <p>
-                El negocio se destaca por su atención cercana y el asesoramiento personalizado, brindando orientación clara sobre marcas, 
-                materiales y funcionamiento de los equipos. Los clientes valoran la cordialidad, el profesionalismo y la posibilidad de probar 
-                productos antes de la entrega, además de la sólida relación precio–calidad y la gestión de pedidos por encargo. Esta combinación 
-                de servicio, confianza y variedad posiciona a la empresa como una opción recomendada para equipar un negocio con respaldo y 
-                seguridad.
-            </p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
 
             <div class="acerca-destacados">
-                <div class="destacado">
-                    <span>✔</span>
-                    <p>Gran variedad de equipamientos comerciales</p>
-                </div>
-
-                <div class="destacado">
-                    <span>✔</span>
-                    <p>Asesoramiento personalizado</p>
-                </div>
-
-                <div class="destacado">
-                    <span>✔</span>
-                    <p>Excelente relación precio–calidad</p>
-                </div>
-
-                <div class="destacado">
-                    <span>✔</span>
-                    <p>Atención cordial y profesional</p>
-                </div>
+                <div class="destacado"><span>✔</span><p>Gran variedad de equipamientos comerciales</p></div>
+                <div class="destacado"><span>✔</span><p>Asesoramiento personalizado</p></div>
+                <div class="destacado"><span>✔</span><p>Excelente relación precio–calidad</p></div>
+                <div class="destacado"><span>✔</span><p>Atención cordial y profesional</p></div>
             </div>
+
         </div>
 
     </div>
@@ -106,21 +73,17 @@
     </div>
 </section>
 
-<section id="galeria" class="fade-in">
-    <h2>Galería</h2>
-    <div class="gallery">
-        <img src="img/batidora_industrial.png" alt="">
-        <img src="img/freidora.png" alt="">
-        <img src="img/horno-pizzero.png" alt="">
-    </div>
+<section id="comentarios" class="fade-in">
+    <h2>Opiniones de clientes</h2>
+    <div class="comentarios-grid" id="listaComentarios"></div>
 </section>
 
 <section id="contacto" class="fade-in">
     <h2>Contacto</h2>
 
-    <form action="https://formspree.io/f/tu_codigo" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu email" required>
+    <form id="form-contacto">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
         <textarea name="mensaje" maxlength="200" rows="1" placeholder="Tu consulta" required></textarea>
         <div class="contador">0 / 200</div>
         <button type="submit">Enviar mensaje</button>

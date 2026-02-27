@@ -9,6 +9,7 @@ body{background:#1a1a1a;
 
 .fondo-superior{
     position:relative;
+    pointer-events: none;
     background:url("img/local.png") center/cover no-repeat;
     animation:aparecerFondo 1s ease forwards
 }
@@ -44,13 +45,19 @@ header{
 
 nav{
     width:100%;
-    padding:20px;text-align:center;
+    padding:20px;
+    text-align:center;
+    position: fixed;
     background:rgba(20,20,20,.95);
     box-shadow:0 4px 15px rgba(0,0,0,.5);
-    z-index:1000
+    z-index:9999
 }
 .nav-fija{
-    position:fixed;top:0;left:0;width:100%;z-index:10001
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:10001
 }
 
 nav a{
@@ -189,15 +196,37 @@ section{
     transform:translateY(-5px)
 }
 
-.gallery{
-    padding:20px;
+.comentarios-grid{
     display:grid;
-    gap:40px;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr))
+    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    margin-top:30px;
 }
-.gallery img{
-    width:100%;
-    border-radius:10px
+.comentario{
+    background:#222;
+    border:1px solid #444;
+    padding:20px;
+    border-radius:10px;
+    transition:.3s ease;
+}
+.comentario:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.5);
+}
+.comentario h4{
+    color:#e81414;
+    margin-bottom:10px;
+}
+.estrellas{
+    color:#e81414;
+    margin-bottom:10px;
+}
+#comentarios {
+    min-height: 300px;
+    background-color: #cfcfcf;
+}
+#comentarios h2 {
+    color: #111;
 }
 
 form{
@@ -215,7 +244,8 @@ input,textarea{
 textarea{
     min-height:80px;
     max-height:200px;
-    resize:none;overflow-y:auto
+    resize:none;
+    overflow-y:auto
 }
 .contador{
     font-size:14px;
