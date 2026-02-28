@@ -137,23 +137,8 @@ nav a.activo{
     max-width:1300px;
     margin:auto;
     display:grid;
-    grid-template-columns:1fr 1fr;
     gap:100px;
     align-items:center}
-
-.video-wrapper{
-    aspect-ratio:9/16;
-    overflow:hidden;
-    border-radius:12px;
-    border:1px solid #333;
-    background:#000
-}
-.video-wrapper video,.video-wrapper iframe{
-    width:100%;
-    height:100%;
-    object-fit:cover
-}
-
 .slide-left{
     opacity:0;
     transform:translateX(-60px)
@@ -196,6 +181,58 @@ section{
     transform:translateY(-5px)
 }
 
+
+.contenedor-comentario {
+    perspective: 1000px;
+}
+.tarjeta-comentario {
+    width: 280px;
+    height: 180px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .6s;
+    cursor: pointer;
+}
+.contenedor-comentario:hover .tarjeta-comentario {
+    transform: rotateY(180deg);
+}
+.cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+/* FRENTE ROJO */
+.frente {
+    background: #d62828;
+    color: white;
+}
+/* REVERSO */
+.reverso {
+    background: white;
+    transform: rotateY(180deg);
+    text-align: center;
+    color: black;
+}
+/* FOTO PERFIL */
+.foto-perfil {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+.estrellas {
+    margin-top: 5px;
+    font-size: 18px;
+}
 .comentarios-grid{
     display:grid;
     gap:20px;
@@ -218,15 +255,15 @@ section{
     margin-bottom:10px;
 }
 .estrellas{
-    color:#e81414;
+    color:yellow;
     margin-bottom:10px;
 }
 #comentarios {
     min-height: 300px;
-    background-color: #cfcfcf;
+    background-color: #111;
 }
 #comentarios h2 {
-    color: #111;
+    color: white;
 }
 
 form{

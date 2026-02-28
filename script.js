@@ -72,44 +72,48 @@ enlacesNav.forEach(enlace => {
 // =========================
 
 
-document.addEventListener("DOMContentLoaded", () => {
+const comentarios = [
+    { nombre: "Luis. P", texto: "Buenos precios y buena mercadería", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Cintia. A", texto: "Excelente atención. Muy buenos precios.", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Graciela. A", texto: "Excelente atención y cordialidad. Asesoramiento personalizado y precios acordes. Recomendable.", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Jose. L", texto: "Excelente atención. Muy buenos precios.\nAmabilidad.seriedad y respeto.\n", estrellas: 4, foto: "img/perfiles/perfil.png" },
+    { nombre: "Renzo. I", texto: "Excelentes precios variedades y calidad de productos como la atención recibida gracias por los equipamientos adquiridos! Súper recomendado", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Sergio. A", texto: "Excelente atención! Buenos productos. Recomendable.", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Mauro. A", texto: "Muy buena atención, precios accesibles y buena calidad de productos, garantía y facturación en el instante", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Leandro. L", texto: "Muy buenos productos. Y excelente Calidad en productos, gracias por la buena atención", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Ezequiel. F", texto: "Muy buena calidad de los productos. Excelente relación precio calidad.", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Ali. N", texto: "Muy buena calidad de los equipos, y buenos precios. Muy amable la atención", estrellas: 5, foto: "img/perfiles/perfil.png" },
+    { nombre: "Esteban. G", texto: "Muy buenos hornos industriales. Buena atención y servicio post venta.", estrellas: 4, foto: "img/perfiles/perfil.png" },
+    { nombre: "Ismael", texto: "Muy buena atención y calidad de las maquinarias lo recomiendo", estrellas: 4, foto: "img/perfiles/perfil.png" }
+];
 
-    const contenedor = document.getElementById("listaComentarios");
-    if (!contenedor) return;
+const contenedor = document.getElementById("listaComentarios");
 
-    const comentarios = [
-        { nombre: "Carolina M.", texto: "Excelente atención y asesoramiento.", estrellas: 5 },
-        { nombre: "Juan P.", texto: "Muy buenos precios y variedad.", estrellas: 5 },
-        { nombre: "Marcelo R.", texto: "Compré una cocina industrial y funciona perfecto.", estrellas: 5 },
-        { nombre: "Cintia A.", texto: "Cumplieron con un pedido por encargo.", estrellas: 5 },
-        { nombre: "Luis F.", texto: "Equipamiento de calidad.", estrellas: 5 },
-        { nombre: "Andrea G.", texto: "Excelente relación precio-calidad.", estrellas: 5 },
-        { nombre: "Diego S.", texto: "Muy confiables.", estrellas: 4 },
-        { nombre: "Rocío B.", texto: "Asesoramiento claro.", estrellas: 5 },
-        { nombre: "Pablo M.", texto: "Ideal para gastronomía.", estrellas: 5 },
-        { nombre: "María L.", texto: "Productos duraderos.", estrellas: 4 },
-        { nombre: "Gustavo T.", texto: "Gran predisposición.", estrellas: 5 },
-        { nombre: "Silvia N.", texto: "Pude probar el equipo antes.", estrellas: 5 }
-    ];
+const mejores = comentarios.filter(c => c.estrellas >= 4);
+const seleccion = mejores.sort(() => Math.random() - 0.5).slice(0, 4);
 
-    const mejores = comentarios.filter(c => c.estrellas >= 4);
-    const seleccion = mejores.sort(() => Math.random() - 0.5).slice(0, 4);
+seleccion.forEach(c => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "contenedor-comentario";
 
-    seleccion.forEach(c => {
-        const card = document.createElement("div");
-        card.className = "comentario";
-        card.innerHTML = `
+    const card = document.createElement("div");
+    card.className = "tarjeta-comentario";
+
+    card.innerHTML = `
+        <div class="cara frente">
+            <img src="${c.foto}" class="foto-perfil">
             <h4>${c.nombre}</h4>
             <div class="estrellas">${"★".repeat(c.estrellas)}</div>
+        </div>
+
+        <div class="cara reverso">
             <p>${c.texto}</p>
-        `;
-        contenedor.appendChild(card);
-        setTimeout(() => card.classList.add("aparecer"), 100);
+        </div>
+    `;
 
-    });
-
+    wrapper.appendChild(card);
+    contenedor.appendChild(wrapper);
 });
-
 
 // =========================
 // TEXTAREA AUTO-EXPANDIBLE
